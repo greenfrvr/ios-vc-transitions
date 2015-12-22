@@ -12,6 +12,12 @@
 		1165DA5B1C22E75B0047AA3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1165DA591C22E75B0047AA3B /* Main.storyboard */; };
 		1165DA5D1C22E75B0047AA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1165DA5C1C22E75B0047AA3B /* Assets.xcassets */; };
 		1165DA601C22E75B0047AA3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1165DA5E1C22E75B0047AA3B /* LaunchScreen.storyboard */; };
+		11846B201C28010B00F7AF66 /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11846B1F1C28010B00F7AF66 /* DetailsController.swift */; };
+		11849DE41C2927ED004AFE31 /* BlurAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11849DE31C2927ED004AFE31 /* BlurAnimator.swift */; };
+		11849DE61C292976004AFE31 /* AnimatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11849DE51C292976004AFE31 /* AnimatorProtocol.swift */; };
+		11849DE81C292DA6004AFE31 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11849DE71C292DA6004AFE31 /* TransitionAnimator.swift */; };
+		11D002C31C23E9040028D01F /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D002C21C23E9040028D01F /* PhotosUI.framework */; };
+		11D002C51C243FDD0028D01F /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D002C41C243FDD0028D01F /* TransitionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		1165DA5C1C22E75B0047AA3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1165DA5F1C22E75B0047AA3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1165DA611C22E75B0047AA3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11846B1F1C28010B00F7AF66 /* DetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
+		11849DE31C2927ED004AFE31 /* BlurAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurAnimator.swift; sourceTree = "<group>"; };
+		11849DE51C292976004AFE31 /* AnimatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatorProtocol.swift; sourceTree = "<group>"; };
+		11849DE71C292DA6004AFE31 /* TransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
+		11D002C21C23E9040028D01F /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		11D002C41C243FDD0028D01F /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11D002C31C23E9040028D01F /* PhotosUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +51,7 @@
 		1165DA491C22E75A0047AA3B = {
 			isa = PBXGroup;
 			children = (
+				11D002C21C23E9040028D01F /* PhotosUI.framework */,
 				1165DA541C22E75A0047AA3B /* Transitions */,
 				1165DA531C22E75A0047AA3B /* Products */,
 			);
@@ -54,14 +68,27 @@
 		1165DA541C22E75A0047AA3B /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
+				11849DE21C292790004AFE31 /* Animators */,
 				1165DA551C22E75B0047AA3B /* AppDelegate.swift */,
 				1165DA571C22E75B0047AA3B /* ViewController.swift */,
+				11846B1F1C28010B00F7AF66 /* DetailsController.swift */,
+				11D002C41C243FDD0028D01F /* TransitionManager.swift */,
 				1165DA591C22E75B0047AA3B /* Main.storyboard */,
 				1165DA5C1C22E75B0047AA3B /* Assets.xcassets */,
 				1165DA5E1C22E75B0047AA3B /* LaunchScreen.storyboard */,
 				1165DA611C22E75B0047AA3B /* Info.plist */,
 			);
 			path = Transitions;
+			sourceTree = "<group>";
+		};
+		11849DE21C292790004AFE31 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				11849DE31C2927ED004AFE31 /* BlurAnimator.swift */,
+				11849DE71C292DA6004AFE31 /* TransitionAnimator.swift */,
+				11849DE51C292976004AFE31 /* AnimatorProtocol.swift */,
+			);
+			name = Animators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +163,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11846B201C28010B00F7AF66 /* DetailsController.swift in Sources */,
+				11849DE81C292DA6004AFE31 /* TransitionAnimator.swift in Sources */,
+				11D002C51C243FDD0028D01F /* TransitionManager.swift in Sources */,
+				11849DE61C292976004AFE31 /* AnimatorProtocol.swift in Sources */,
 				1165DA581C22E75B0047AA3B /* ViewController.swift in Sources */,
 				1165DA561C22E75B0047AA3B /* AppDelegate.swift in Sources */,
+				11849DE41C2927ED004AFE31 /* BlurAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +317,7 @@
 				1165DA661C22E75B0047AA3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
